@@ -15,12 +15,12 @@ class CreateVendasTable extends Migration
     {
         Schema::create('vendas', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('fk_produto')->unique();
-            $table->bigInteger('fk_funcionario')->unique();
+            $table->bigInteger('fk_produto')->unsigned();
+            $table->bigInteger('fk_user')->unsigned();
             $table->integer('quantidade');
 
             $table->foreign('fk_produto')->references('id')->on('produtos')->onDelete('cascade');
-            $table->foreign('fk_funcionario')->references('id')->on('funcionarios')->onDelete('cascade');
+            $table->foreign('fk_user')->references('id')->on('users')->onDelete('cascade');
             
             $table->timestamps();
         });

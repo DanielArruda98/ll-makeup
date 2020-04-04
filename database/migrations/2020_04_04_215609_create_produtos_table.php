@@ -15,8 +15,8 @@ class CreateProdutosTable extends Migration
     {
         Schema::create('produtos', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('fk_make')->unique();
-            $table->bigInteger('fk_marca')->unique();
+            $table->bigInteger('fk_make')->unsigned();
+            $table->bigInteger('fk_marca')->unsigned();
             $table->string('descricao');
             $table->string('foto');
             $table->decimal('preco', 6, 2);
